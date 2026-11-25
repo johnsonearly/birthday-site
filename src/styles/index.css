@@ -1,0 +1,45 @@
+@import "tailwindcss";
+
+@theme {
+  --color-void: #090414;
+  --color-night: #150827;
+  --color-deep: #29104a;
+  --color-violet: #8b35ff;
+  --color-lavender: #c9a6ff;
+  --color-blush: #f2b7ff;
+  --font-serif: "Cormorant Garamond", Georgia, serif;
+  --font-sans: "DM Sans", system-ui, sans-serif;
+  --font-hand: "Caveat", cursive;
+}
+
+html, body, #root { height: 100%; }
+html { background: #090414; }
+body {
+  margin: 0;
+  overflow: hidden;
+  overscroll-behavior: none;
+  background: #090414;
+  color: #fff;
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -webkit-tap-highlight-color: transparent;
+}
+button { font: inherit; color: inherit; cursor: pointer; }
+:focus-visible { outline: 2px solid #c9a6ff; outline-offset: 3px; border-radius: 6px; }
+
+.glass {
+  background: linear-gradient(160deg, rgba(139,53,255,.16), rgba(41,16,74,.38));
+  border: 1px solid rgba(201,166,255,.22);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+.text-glow { text-shadow: 0 0 32px rgba(139,53,255,.55); }
+.safe-bottom { padding-bottom: max(1rem, env(safe-area-inset-bottom)); }
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { scrollbar-width: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  .twinkle { animation: none !important; }
+}
+@keyframes twinkle { 0%,100% { opacity: var(--o, .6); } 50% { opacity: .15; } }
+.twinkle { animation: twinkle var(--d, 4s) ease-in-out infinite; animation-delay: var(--dl, 0s); }
